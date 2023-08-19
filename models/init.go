@@ -17,7 +17,7 @@ func NewDB(dns string) error {
 		return err
 	}
 
-	err = db.AutoMigrate(&UserBasic{})
+	err = db.AutoMigrate(&UserBasic{}, &RepoBasic{})
 
 	if err != nil {
 		return err

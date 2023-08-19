@@ -20,7 +20,6 @@ service User {
 message LoginRequest {
 	string username = 1; // 用户名
 	string password = 2; // 密码
-
 }
 
 message LoginReply {

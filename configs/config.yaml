@@ -5,6 +5,7 @@ server:
   grpc:
     addr: 0.0.0.0:9011
     timeout: 1s
+  repo_path: /Users/zhouyang/learn/warehouse/repo
 data:
   database:
     driver: mysql

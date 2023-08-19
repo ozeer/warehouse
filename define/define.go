@@ -7,6 +7,7 @@ import (
 var (
 	DefaultPage = "1"
 	DefaultSize = "20"
+	RepoPath    string // RepoPath 仓库地址
 )
 
 var MailPassword = os.Getenv("MailPassword")

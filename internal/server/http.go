@@ -35,5 +35,7 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 
 	// 注册用户相关service
 	git.RegisterUserHTTPServer(srv, service.NewUserService())
+	// 注册仓库模块服务
+	git.RegisterRepoHTTPServer(srv, service.NewRepoService())
 	return srv
 }

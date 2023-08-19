@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package api.git;
+
+import "google/api/annotations.proto";
+
+option go_package = "warehouse/api/git;git";
+option java_multiple_files = true;
+option java_package = "api.git";
+
+service Repo {
+	rpc CreateRepo (CreateRepoRequest) returns (CreateRepoReply);
+	rpc UpdateRepo (UpdateRepoRequest) returns (UpdateRepoReply);
+	rpc DeleteRepo (DeleteRepoRequest) returns (DeleteRepoReply);
+	rpc GetRepo (GetRepoRequest) returns (GetRepoReply);
+	rpc ListRepo (ListRepoRequest) returns (ListRepoReply) {
+		option (google.api.http) = {
+			get: "/repo/list",
+		};
+	}
+}
+
+message CreateRepoRequest {}
+message CreateRepoReply {}
+
+message UpdateRepoRequest {}
+message UpdateRepoReply {}
+
+message DeleteRepoRequest {}
+message DeleteRepoReply {}
+
+message GetRepoRequest {}
+message GetRepoReply {}
+
+message ListRepoRequest {
+	int32 page = 1;
+	int32 page_size = 2;
+}
+message ListRepoItem {
+	string identity = 1;
+	string name = 2;
+	string path = 3;
+	string desc = 4;
+	int32 star = 5;
+}
+message ListRepoReply {
+	int64 cnt = 1;
+	repeated ListRepoItem list = 2;
+}

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"warehouse/internal/define"
+	"warehouse/define"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jordan-wright/email"
