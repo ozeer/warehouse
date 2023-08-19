@@ -4,6 +4,7 @@ import (
 	"flag"
 	"os"
 
+	"warehouse/define"
 	"warehouse/internal/conf"
 	"warehouse/models"
 
@@ -81,6 +82,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	// 初始化repo仓库目录
+	define.RepoPath = bc.Server.RepoPath
 
 	app, cleanup, err := wireApp(bc.Server, bc.Data, logger)
 	if err != nil {

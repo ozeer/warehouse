@@ -9,10 +9,29 @@ option java_multiple_files = true;
 option java_package = "api.git";
 
 service Repo {
-	rpc CreateRepo (CreateRepoRequest) returns (CreateRepoReply);
-	rpc UpdateRepo (UpdateRepoRequest) returns (UpdateRepoReply);
-	rpc DeleteRepo (DeleteRepoRequest) returns (DeleteRepoReply);
-	rpc GetRepo (GetRepoRequest) returns (GetRepoReply);
+	rpc CreateRepo (CreateRepoRequest) returns (CreateRepoReply){
+		option (google.api.http) = {
+			post: "/repo/create",
+			body: "*"
+		};
+	}
+	rpc UpdateRepo (UpdateRepoRequest) returns (UpdateRepoReply) {
+		option (google.api.http) = {
+			post: "/repo/update",
+			body: "*"
+		};
+	}
+	rpc DeleteRepo (DeleteRepoRequest) returns (DeleteRepoReply) {
+		option (google.api.http) = {
+			post: "/repo/delete",
+			body: "*"
+		};
+	}
+	rpc GetRepo (GetRepoRequest) returns (GetRepoReply) {
+		option (google.api.http) = {
+			get: "/repo/get",
+		};
+	}
 	rpc ListRepo (ListRepoRequest) returns (ListRepoReply) {
 		option (google.api.http) = {
 			get: "/repo/list",
@@ -20,17 +39,37 @@ service Repo {
 	}
 }
 
-message CreateRepoRequest {}
+message CreateRepoRequest {
+	string name = 2;
+	string path = 3;
+	string desc = 4;
+	int32 type = 5;
+}
 message CreateRepoReply {}
 
-message UpdateRepoRequest {}
+message UpdateRepoRequest {
+	string identity = 1;
+	string name = 2;
+	int32 type = 3;
+	string desc = 4;
+}
 message UpdateRepoReply {}
 
-message DeleteRepoRequest {}
+message DeleteRepoRequest {
+	string identity = 1;
+}
 message DeleteRepoReply {}
 
-message GetRepoRequest {}
-message GetRepoReply {}
+message GetRepoRequest {
+	string identity = 1;
+}
+message GetRepoReply {
+	string name = 2;
+	string path = 3;
+	string desc = 4;
+	int32 star = 5;
+	int32 type = 6;
+}
 
 message ListRepoRequest {
 	int32 page = 1;

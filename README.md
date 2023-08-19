@@ -9,7 +9,7 @@ go install github.com/go-kratos/kratos/cmd/kratos/v2@latest
 kratos new warehouse
 ```
 ### 创建模块服务
-### 1. 用户模块
+#### 1. 用户模块
 ```bash
 cd warehouse
 # 创建user.proto
@@ -19,7 +19,7 @@ kratos proto client api/git/user.proto
 # 生成service服务（Generate the source code of service by proto file）
 kratos proto server api/git/user.proto -t internal/service
 ```
-### 2. 仓库模块
+#### 2. 仓库模块
 ```bash
 # 创建repo.proto
 kratos proto add api/git/repo.proto
@@ -29,13 +29,13 @@ kratos proto client api/git/repo.proto
 kratos proto server api/git/repo.proto -t internal/service
 ```
 
-## 启动项目
+### 启动项目
 ```
 go generate ./...
 go build -o ./bin/ ./...
 ./bin/server -conf ./configs
 ```
-## Generate other auxiliary files by Makefile
+### Generate other auxiliary files by Makefile
 ```
 # Download and update dependencies
 make init
@@ -44,7 +44,7 @@ make api
 # Generate all files
 make all
 ```
-## Automated Initialization (wire)
+### Automated Initialization (wire)
 ```
 # install wire
 go get github.com/google/wire/cmd/wire
@@ -54,7 +54,7 @@ cd cmd/server
 wire
 ```
 
-## Docker
+### Docker
 ```bash
 # build
 docker build -t <your-docker-image-name> .

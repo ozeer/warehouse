@@ -81,7 +81,7 @@ type LoginReply struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"` // access_token
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"` // token
 }
 
 func (x *LoginReply) Reset() {

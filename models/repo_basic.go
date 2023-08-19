@@ -10,6 +10,7 @@ type RepoBasic struct {
 	Path     string `gorm:"column:path;type:varchar(255);" json:"path"`        // path 仓库路径
 	Desc     string `gorm:"column:desc;type:varchar(255);" json:"desc"`        // desc 仓库描述
 	Star     int32  `gorm:"column:star;type:int(11);default:0;" json:"star"`   // star 仓库星数
+	Type     int32  `gorm:"column:type;type:int(11);default:0;" json:"type"`   // type 仓库类型{1:公有 0:私有}
 }
 
 func (table *RepoBasic) TableName() string {
