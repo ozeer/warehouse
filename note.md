@@ -5,4 +5,5 @@
 
 ## 错误处理
 1. vscode报错误：Import "google/api/annotations.proto" was not found or had errors.
-解决办法：
+解决办法：修改配置文件
+![Alt text](image.png)
